@@ -30,40 +30,45 @@ O projeto utiliza várias fontes de dados, incluindo informações geográficas 
 
 ---
 
-### Análise e Visualização
+### Análise e Visualização Detalhada
 
-A análise foi realizada com uma combinação de notebooks Jupyter e scripts Python para gerar insights. Visualizações importantes foram salvas no diretório `outputs`.
+O projeto examinou como a proximidade a serviços essenciais influencia o preço dos aluguéis em São Paulo. A análise utilizou cálculos estatísticos, normalizações e visualizações para explorar padrões e entender a relação entre proximidade a serviços e os preços dos imóveis.
 
-#### Notebooks e Scripts Principais
-- **`initialAnalysis.ipynb`**: Este notebook inclui exploração inicial de dados, resumos estatísticos e visualizações preliminares para entender a distribuição do aluguel e identificar outliers.
-- **Scripts de Análise**:
-  - **`generate_analisys.py`**: Contém funções principais de análise para correlacionar os preços de aluguel com as métricas de proximidade.
-  - **`sao_paulo_property_services_map.py`**: Cria mapas interativos para exibir a localização dos aluguéis e serviços próximos.
+#### Exploração Inicial dos Dados
+
+- **Distribuição dos Aluguéis**: A análise inicial mostrou que os preços de aluguel variam amplamente em São Paulo, com uma concentração maior em faixas intermediárias, mas com outliers notáveis. Essa variação pode refletir diferenças nas características dos imóveis ou na atratividade dos bairros.
+- **Correlação entre Aluguel e Distância a Serviços**:
+  - A proximidade a **escolas** apresentou uma correlação fraca com os preços de aluguel, com um valor de -0,06. Isso sugere uma tendência muito leve de que imóveis próximos a escolas tenham preços ligeiramente mais altos.
+  - Para **hospitais**, a correlação foi ainda mais baixa, -0,05, e para **parques**, o valor foi de -0,09. Essas correlações negativas, embora presentes, são fracas e indicam que a proximidade a esses serviços não exerce uma influência significativa sobre os aluguéis. Isso pode sugerir que locatários em São Paulo priorizam outros fatores ao escolher um imóvel.
+
+#### Cálculo e Interpretação do Coeficiente Composto
+
+Para capturar o efeito combinado da proximidade a serviços nos preços de aluguel, foi calculado um **coeficiente composto de proximidade-aluguel**. Esse coeficiente é uma média ponderada das distâncias normalizadas a escolas, hospitais e parques, padronizando-as para uma escala comum. Com um valor final de **0,08**, o coeficiente reforça que a influência agregada desses serviços é praticamente insignificante no preço do aluguel.
 
 #### Visualizações Geradas
 
-As seguintes visualizações ajudam a ilustrar os principais pontos e conclusões da análise:
+As visualizações detalham a relação entre proximidade a serviços e aluguel, proporcionando uma análise visual que complementa os achados estatísticos.
 
-1. **Gráficos de Distância vs. Aluguel**:
-   - Os gráficos de dispersão para **escolas**, **hospitais** e **parques** mostram a relação entre o aluguel e a distância de cada tipo de serviço. Exibidos como `distance_vs_price_hospital.png`, `distance_vs_price_parks.png`, e `distance_vs_price_schools.png`, esses gráficos ajudam a confirmar a fraca correlação observada:
+1. **Gráficos de Dispersão (Distância vs. Aluguel)**:
+   - Os gráficos de dispersão mostram a relação entre os preços de aluguel e a distância a escolas, hospitais e parques, permitindo verificar se há alguma tendência clara. Estes gráficos estão salvos como:
      - ![Distance vs Price - Hospital](outputs/distance_vs_price_hospital.png)
      - ![Distance vs Price - Parks](outputs/distance_vs_price_parks.png)
      - ![Distance vs Price - Schools](outputs/distance_vs_price_schools.png)
-   - Cada gráfico mostra uma leve tendência de aumento no aluguel para imóveis próximos a serviços, mas a relação não é forte o suficiente para ser conclusiva.
+   - Observa-se uma leve tendência nos gráficos, onde, em média, imóveis mais próximos a serviços apresentam aluguéis um pouco mais altos. No entanto, a dispersão dos pontos reforça que essa tendência é fraca. Há muitos imóveis distantes de serviços com aluguéis altos, o que indica que a proximidade não é um fator determinante.
 
-2. **Mapas de Calor**:
-   - **`heatmap_combined_services.png`**: Este mapa de calor agrega todos os serviços (escolas, hospitais e parques) para mostrar áreas de maior concentração de serviços. É útil para observar se há coincidência entre áreas de alta concentração de serviços e áreas de alto aluguel.
+2. **Mapas de Calor (Heatmaps)**:
+   - **Mapa de Calor Combinado dos Serviços**: Este mapa de calor agrega os três serviços principais em um único mapa, mostrando áreas de São Paulo com alta densidade de serviços. Ele permite observar se essas áreas de concentração coincidem com locais de aluguel elevado.
      - ![Heatmap Combined Services](outputs/heatmap_combined_services.png)
-   - **`heatmap_distance_to_schools_parks.png`**: Este mapa de calor destaca especificamente a proximidade a escolas e parques, com áreas coloridas que indicam onde estão concentrados esses serviços em relação aos imóveis. Isso ajuda a ver se a proximidade a múltiplos serviços afeta os preços de aluguel.
+   - **Mapa de Calor para Escolas e Parques**: Neste mapa de calor, são destacados especificamente escolas e parques, ajudando a identificar zonas de conveniência com múltiplos serviços. Visualmente, observa-se que essas áreas nem sempre coincidem com os locais de aluguel mais alto.
      - ![Heatmap Distance to Schools and Parks](outputs/heatmap_distance_to_schools_parks.png)
 
-3. **Mapa Interativo**: O arquivo HTML `sao_paulo_property_services_distance_map_with_alpha_legend.html` é uma ferramenta dinâmica de exploração visual. Ele inclui camadas interativas que permitem alternar a visualização de serviços específicos e a densidade de preços de aluguel:
-   - <a href="outputs/sao_paulo_property_services_distance_map_with_alpha_legend.html" target="_blank">Mapa Interativo de Proximidade e Aluguel</a>
-   - **Funcionalidades**:
-     - Alternância entre camadas de escolas, hospitais e parques para observar a distribuição de serviços e a proximidade dos imóveis.
-     - Mapa de calor de preços de aluguel que permite ao usuário ver áreas de alto e baixo aluguel e sua relação com os serviços.
+3. **Mapa Interativo**:
+   - O mapa interativo permite uma análise espacial dos dados de aluguel e da proximidade aos serviços. Nele, o usuário pode ativar e desativar camadas para visualizar onde os serviços estão concentrados e observar como os preços de aluguel variam em diferentes regiões:
+     - **Distribuição dos Serviços e Imóveis**: O mapa interativo permite alternar entre camadas para visualizar escolas, hospitais e parques. Isso ajuda a identificar onde esses serviços se encontram e qual é sua relação com a localização dos imóveis.
+     - **Mapa de Calor de Aluguel**: Este mapa de calor mostra as áreas de São Paulo com os aluguéis mais altos, permitindo verificar se há sobreposição com áreas de alta densidade de serviços. As regiões de aluguel elevado não coincidem necessariamente com as áreas de maior concentração de serviços, sugerindo que outros fatores estão em jogo.
+   - [Mapa Interativo de Proximidade e Aluguel](outputs/sao_paulo_property_services_distance_map_with_alpha_legend.html)
 
-Essas visualizações combinadas oferecem uma visão completa da distribuição de serviços e preços de aluguel em São Paulo e reforçam as conclusões obtidas na análise estatística.
+Essas visualizações, combinadas com a análise estatística, reforçam a conclusão de que a proximidade a serviços essenciais não é um fator predominante na determinação dos preços de aluguel em São Paulo. Isso sugere que fatores específicos dos imóveis ou características do bairro provavelmente exercem uma influência mais significativa.
 
 ---
 
