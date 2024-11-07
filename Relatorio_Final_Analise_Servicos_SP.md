@@ -82,7 +82,7 @@ Essas visualizações, combinadas com a análise estatística, reforçam a concl
    - Essas correlações negativas sugerem que, em média, imóveis mais próximos desses serviços podem ter preços de aluguel ligeiramente mais altos. No entanto, a fraqueza da correlação indica que a proximidade a esses serviços não é um fator significativo na determinação dos preços de aluguel. Outros fatores, como características específicas do imóvel ou localização em bairros desejados, podem ter mais influência.
 
 #### 2. Coeficiente Composto Proximidade-Aluguel
-   - Um coeficiente composto proximidade-aluguel foi calculado para capturar o efeito combinado da proximidade com os três tipos de serviços sobre os preços de aluguel. Com um valor final de **0,08**, esse coeficiente confirma que a influência da proximidade com esses serviços sobre o preço do aluguel é mínima, sugerindo que esses serviços têm pouca relevância prática na definição dos preços.
+   - Um coeficiente composto proximidade-aluguel foi calculado para capturar o efeito combinado da proximidade com os três tipos de serviços sobre os preços de aluguel. Com um valor final de **0,06**, esse coeficiente confirma que a influência da proximidade com esses serviços sobre o preço do aluguel é mínima, sugerindo que esses serviços têm pouca relevância prática na definição dos preços.
 
 #### 3. Análise Espacial com Mapas de Calor
    - **Mapas de Calor** revelam a concentração espacial dos serviços em certas regiões de São Paulo. Embora certas áreas exibam uma alta densidade de serviços, não há uma relação visível e significativa entre essas concentrações e os preços de aluguel, o que reforça a conclusão de que a proximidade a serviços não é um fator primário para o custo dos aluguéis.
