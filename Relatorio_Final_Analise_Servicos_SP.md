@@ -57,8 +57,6 @@ As visualizações detalham a relação entre proximidade a serviços e aluguel,
    - Observa-se uma leve tendência nos gráficos, onde, em média, imóveis mais próximos a serviços apresentam aluguéis um pouco mais altos. No entanto, a dispersão dos pontos reforça que essa tendência é fraca. Há muitos imóveis distantes de serviços com aluguéis altos, o que indica que a proximidade não é um fator determinante.
 
 2. **Mapas de Calor (Heatmaps)**:
-   - **Mapa de Calor Combinado dos Serviços**: Este mapa de calor agrega os três serviços principais em um único mapa, mostrando áreas de São Paulo com alta densidade de serviços. Ele permite observar se essas áreas de concentração coincidem com locais de aluguel elevado.
-     - ![Heatmap Combined Services](outputs/heatmap_combined_services.png)
    - **Mapa de Calor para Escolas e Parques**: Neste mapa de calor, são destacados especificamente escolas e parques, ajudando a identificar zonas de conveniência com múltiplos serviços. Visualmente, observa-se que essas áreas nem sempre coincidem com os locais de aluguel mais alto.
      - ![Heatmap Distance to Schools and Parks](outputs/heatmap_distance_to_schools_parks.png)
 
