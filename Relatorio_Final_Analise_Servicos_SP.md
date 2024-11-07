@@ -41,19 +41,29 @@ A análise foi realizada com uma combinação de notebooks Jupyter e scripts Pyt
   - **`sao_paulo_property_services_map.py`**: Cria mapas interativos para exibir a localização dos aluguéis e serviços próximos.
 
 #### Visualizações Geradas
-1. **Distância vs. Aluguel**: Gráficos do aluguel em função da distância para **escolas**, **hospitais** e **parques**.
-   - ![Distance vs Price - Hospital](outputs/distance_vs_price_hospital.png)
-   - ![Distance vs Price - Parks](outputs/distance_vs_price_parks.png)
-   - ![Distance vs Price - Schools](outputs/distance_vs_price_schools.png)
+
+As seguintes visualizações ajudam a ilustrar os principais pontos e conclusões da análise:
+
+1. **Gráficos de Distância vs. Aluguel**:
+   - Os gráficos de dispersão para **escolas**, **hospitais** e **parques** mostram a relação entre o aluguel e a distância de cada tipo de serviço. Exibidos como `distance_vs_price_hospital.png`, `distance_vs_price_parks.png`, e `distance_vs_price_schools.png`, esses gráficos ajudam a confirmar a fraca correlação observada:
+     - ![Distance vs Price - Hospital](outputs/distance_vs_price_hospital.png)
+     - ![Distance vs Price - Parks](outputs/distance_vs_price_parks.png)
+     - ![Distance vs Price - Schools](outputs/distance_vs_price_schools.png)
+   - Cada gráfico mostra uma leve tendência de aumento no aluguel para imóveis próximos a serviços, mas a relação não é forte o suficiente para ser conclusiva.
 
 2. **Mapas de Calor**:
-   - `heatmap_combined_services.png` mostra as áreas agregadas de serviços.
-     ![Heatmap Combined Services](outputs/heatmap_combined_services.png)
-   - `heatmap_distance_to_schools_parks.png` exibe as áreas de proximidade para escolas e parques.
-     ![Heatmap Distance to Schools and Parks](outputs/heatmap_distance_to_schools_parks.png)
+   - **`heatmap_combined_services.png`**: Este mapa de calor agrega todos os serviços (escolas, hospitais e parques) para mostrar áreas de maior concentração de serviços. É útil para observar se há coincidência entre áreas de alta concentração de serviços e áreas de alto aluguel.
+     - ![Heatmap Combined Services](outputs/heatmap_combined_services.png)
+   - **`heatmap_distance_to_schools_parks.png`**: Este mapa de calor destaca especificamente a proximidade a escolas e parques, com áreas coloridas que indicam onde estão concentrados esses serviços em relação aos imóveis. Isso ajuda a ver se a proximidade a múltiplos serviços afeta os preços de aluguel.
+     - ![Heatmap Distance to Schools and Parks](outputs/heatmap_distance_to_schools_parks.png)
 
-3. **Mapa Interativo**: O arquivo `sao_paulo_property_services_distance_map_with_alpha_legend.html` fornece uma ferramenta de exploração visual, permitindo que os usuários alternem camadas de serviços e examinem pontos de aluguel.
-- <a href="outputs/sao_paulo_property_services_distance_map_with_alpha_legend.html" target="_blank">Mapa Interativo de Proximidade e Aluguel</a>
+3. **Mapa Interativo**: O arquivo HTML `sao_paulo_property_services_distance_map_with_alpha_legend.html` é uma ferramenta dinâmica de exploração visual. Ele inclui camadas interativas que permitem alternar a visualização de serviços específicos e a densidade de preços de aluguel:
+   - <a href="outputs/sao_paulo_property_services_distance_map_with_alpha_legend.html" target="_blank">Mapa Interativo de Proximidade e Aluguel</a>
+   - **Funcionalidades**:
+     - Alternância entre camadas de escolas, hospitais e parques para observar a distribuição de serviços e a proximidade dos imóveis.
+     - Mapa de calor de preços de aluguel que permite ao usuário ver áreas de alto e baixo aluguel e sua relação com os serviços.
+
+Essas visualizações combinadas oferecem uma visão completa da distribuição de serviços e preços de aluguel em São Paulo e reforçam as conclusões obtidas na análise estatística.
 
 ---
 
@@ -61,32 +71,41 @@ A análise foi realizada com uma combinação de notebooks Jupyter e scripts Pyt
 
 #### 1. Análise de Correlação
    - **Correlação Fraca**: A análise revelou uma relação mínima entre o aluguel e a distância para serviços individuais:
-     - Escolas: -0.06
-     - Hospitais: -0.05
-     - Parques: -0.09
-   - As correlações negativas sugerem que imóveis mais próximos desses serviços podem ter aluguéis ligeiramente mais altos, mas a relação é fraca.
+     - Escolas: -0,06
+     - Hospitais: -0,05
+     - Parques: -0,09
+   - Essas correlações negativas sugerem que, em média, imóveis mais próximos desses serviços podem ter preços de aluguel ligeiramente mais altos. No entanto, a fraqueza da correlação indica que a proximidade a esses serviços não é um fator significativo na determinação dos preços de aluguel. Outros fatores, como características específicas do imóvel ou localização em bairros desejados, podem ter mais influência.
 
 #### 2. Coeficiente Composto Proximidade-Aluguel
-   - Um **coeficiente composto proximidade-aluguel** foi calculado para resumir a relação geral entre o aluguel e a proximidade aos serviços. Com um valor de **0.08**, esse coeficiente reforça que o efeito da proximidade com os serviços sobre o aluguel é mínimo.
+   - Um coeficiente composto proximidade-aluguel foi calculado para capturar o efeito combinado da proximidade com os três tipos de serviços sobre os preços de aluguel. Com um valor final de **0,08**, esse coeficiente confirma que a influência da proximidade com esses serviços sobre o preço do aluguel é mínima, sugerindo que esses serviços têm pouca relevância prática na definição dos preços.
 
-#### 3. Análise Espacial
-   - **Mapas de Calor** mostram o agrupamento espacial de serviços, com maior densidade em certas áreas. No entanto, esses clusters não impactam significativamente os padrões de aluguel, indicando que outros fatores podem influenciar os preços dos aluguéis.
+#### 3. Análise Espacial com Mapas de Calor
+   - **Mapas de Calor** revelam a concentração espacial dos serviços em certas regiões de São Paulo. Embora certas áreas exibam uma alta densidade de serviços, não há uma relação visível e significativa entre essas concentrações e os preços de aluguel, o que reforça a conclusão de que a proximidade a serviços não é um fator primário para o custo dos aluguéis.
+   - **Distribuição de Aluguéis**: A visualização dos preços em áreas com diferentes densidades de serviços permite observar que altos preços de aluguel estão espalhados em diversas regiões, independentemente da concentração de serviços.
 
-#### 4. Observações Adicionais
-   - **Outliers**: Vários imóveis com aluguel alto e distantes dos serviços foram identificados, sugerindo que o aluguel é mais influenciado pelas características dos imóveis ou pelo apelo específico do bairro.
+#### 4. Outliers e Observações Adicionais
+   - **Outliers Identificados**: Durante a análise, foram identificados imóveis com aluguéis elevados, mesmo quando situados longe dos serviços analisados. Isso indica que o preço do aluguel é potencialmente mais influenciado pelas características do imóvel, como área útil e número de quartos, ou pelo apelo específico de certos bairros.
 
 ---
 
 ### Conclusão
 
-Esta análise conclui que a proximidade de escolas, hospitais e parques tem um efeito negligenciável nos preços de aluguel em São Paulo:
+Esta análise conclui que a proximidade de escolas, hospitais e parques tem um efeito insignificante nos preços de aluguel em São Paulo. Abaixo estão as principais conclusões detalhadas e recomendações para análises futuras:
 
-1. **Impacto Mínimo**: As correlações fracas e o coeficiente composto sugerem que os locatários não priorizam esses serviços ao decidir sobre aluguéis.
-2. **Influência de Outros Fatores**: Análises futuras poderiam examinar influências adicionais sobre o aluguel, como:
-   - **Características do bairro**: Segurança, níveis de renda ou acessibilidade.
-   - **Especificidades do imóvel**: Tamanho, número de quartos ou idade do edifício.
+1. **Impacto Mínimo da Proximidade aos Serviços**: Os resultados mostram coeficientes de correlação fracos para a proximidade de serviços, e o coeficiente composto de proximidade-aluguel de 0,08 indica que esses serviços específicos (escolas, hospitais, e parques) não exercem uma influência significativa nos preços de aluguel. Esse resultado sugere que a proximidade a esses serviços não é um fator essencial na definição dos preços de aluguel para a maioria dos locatários.
 
+2. **Fatores Alternativos Potencialmente Mais Relevantes**:
+   A análise indica que fatores além da proximidade aos serviços, como características do bairro e atributos do imóvel, provavelmente desempenham um papel mais importante na determinação do valor do aluguel.
+   - **Características do Bairro**: Variáveis como segurança, qualidade do transporte público, e renda média da vizinhança podem ter uma influência maior nos preços dos aluguéis. Bairros com boa infraestrutura e conveniências adicionais tendem a ser mais valorizados.
+   - **Especificações do Imóvel**: O tamanho do imóvel, número de quartos, vagas de garagem e estado de conservação do edifício são fatores conhecidos por afetar significativamente o valor do aluguel. É recomendável que estudos futuros incorporem essas variáveis para uma análise mais abrangente.
+
+3. **Recomendações para Análises Futuras**:
+   - **Incorporar Análise Multivariada**: Recomenda-se o uso de modelos de regressão multivariada para investigar como diferentes fatores (além da proximidade a serviços) influenciam os preços de aluguel. Isso permitiria controlar as variáveis ao mesmo tempo e identificar quais fatores têm o maior impacto.
+   - **Explorar Outros Serviços e Infraestruturas**: Para entender melhor os interesses dos locatários, análises futuras poderiam incluir outras amenidades, como a proximidade de shoppings, transporte público, academias, e áreas de lazer, além de indicadores de qualidade de vida no bairro.
 Este estudo fornece insights sobre a insignificância relativa desses serviços na determinação do aluguel, com recomendações para futuras análises que considerem fatores mais amplos ou alternativos.
+   - **Mapeamento Interativo para Padrões Espaciais**: O uso de mapas interativos que incluam camadas adicionais, como índices de criminalidade e de acesso a transporte, poderia facilitar uma análise mais rica e personalizada dos padrões de aluguel em São Paulo.
+
+Este estudo fornece uma base para futuras análises de habitação na cidade de São Paulo, sugerindo que, para compreender o mercado de aluguel, é essencial considerar uma gama mais ampla de fatores além da proximidade a escolas, hospitais e parques.
 
 ---
 
