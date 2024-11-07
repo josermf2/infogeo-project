@@ -43,7 +43,7 @@ O projeto examinou como a proximidade a serviços essenciais influencia o preço
 
 #### Cálculo e Interpretação do Coeficiente Composto
 
-Para capturar o efeito combinado da proximidade a serviços nos preços de aluguel, foi calculado um **coeficiente composto de proximidade-aluguel**. Esse coeficiente é uma média ponderada das distâncias normalizadas a escolas, hospitais e parques, padronizando-as para uma escala comum. Com um valor final de **0,08**, o coeficiente reforça que a influência agregada desses serviços é praticamente insignificante no preço do aluguel.
+Para capturar o efeito combinado da proximidade a serviços nos preços de aluguel, foi calculado um **coeficiente composto de proximidade-aluguel**. Esse coeficiente é uma média ponderada das distâncias normalizadas a escolas, hospitais e parques, padronizando-as para uma escala comum. Com um valor final de **0,06**, o coeficiente reforça que a influência agregada desses serviços é praticamente insignificante no preço do aluguel.
 
 #### Visualizações Geradas
 
