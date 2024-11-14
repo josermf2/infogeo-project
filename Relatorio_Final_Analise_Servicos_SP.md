@@ -113,10 +113,8 @@ Este estudo fornece uma base para futuras análises de habitação na cidade de 
 ---
 
 ### Apêndices e Referências
-- **Scripts**: Veja `scripts/` para detalhes sobre o processamento de dados e análise.
+- **Scripts**: No diretório `scripts/` é possível ver os detalhes sobre o processamento de dados e análise.
 - **Saídas**: Visualizações e mapas interativos estão em `outputs/`.
 - **Dados**: Dados geográficos originais e conjuntos de dados de aluguel estão localizados no diretório `data/`.
 
 --- 
-
-Este relatório resume as descobertas da Análise de Habitação e Serviços em São Paulo. Para mais detalhes, consulte o código-fonte e as visualizações incluídas no repositório.
